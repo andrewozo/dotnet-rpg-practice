@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace dotnet_rpg.CharacterService
 {
     public interface ICharacterService
     {
-        List<Character> GetAllCharacters();
+        Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacters();
 
+        Task<ServiceResponse<GetCharacterDTO>> GetCharacterById(int id);
 
-        Character GetCharacterById(int id);
-
-        List<Character> AddCharacter(Character newCharacter);
+        Task<ServiceResponse<List<GetCharacterDTO>>> AddCharacter(AddCharacterDTO newCharacter);
     }
 }
